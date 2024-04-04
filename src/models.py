@@ -10,6 +10,11 @@ from Classification.decision_tree_classification import *
 from Classification.svm_classification import *
 from Regression.decision_tree_regression import *
 from Classification.naive_bayes_classification import *
+from Classification.knn_classification import *
+from Classification.svm_classification import *
+from Regression.knn_regression import *
+from Regression.random_forest_regression import *
+from Classification.random_forest_classification import *
 
 def implement_model(df, target_column, algorithm):
     if algorithm == 'logistic_regression':
@@ -30,6 +35,18 @@ def implement_model(df, target_column, algorithm):
     elif algorithm == 'naive_bayes_classification':
         result = naive_bayes_classification(df, target_column)
         print("Inside the function - Naive Bayes Classification")
+    elif algorithm == 'knn_classification':
+        result = knn_classification(df, target_column)
+        print("Inside the KNN Classification")
+    elif algorithm == 'knn_regression':
+        result = knn_regression(df, target_column)
+        print("Inside the function - KNN Regression")
+    elif algorithm == 'random_forest_classification':
+        result = random_forest_classification(df, target_column)
+        print("Inside the function - Random Forest Classification")
+    elif algorithm == 'random_forest_regression':
+        result = random_forest_regression(df, target_column)
+        print("Inside the function - Random Forest Regression")
     else:
         print(f"Algorithm '{algorithm}' is not supported.")
         return -1  # Return an error code or raise an exception
