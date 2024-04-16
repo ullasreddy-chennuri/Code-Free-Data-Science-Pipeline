@@ -1,0 +1,71 @@
+
+.preprocess{
+
+align-items: center;
+justify-content: space-between;
+background-color: white;
+width: 100vw;
+background: url(https://miro.medium.com/v2/resize:fit:679/1*9NWkAN6Es2PnS0_kb6tK2w.gif) no-repeat center center;
+
+background-size: cover;
+height: 101vh;
+}
+.topbuttons{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+
+}
+.backbutton{
+margin-top: 15px;
+margin-left:70px;
+margin-bottom: 5px;
+
+}
+
+.resetbutton{
+    margin-top: 15px;
+    margin-right:70px;
+    margin-bottom: 5px;
+    justify-content: end;
+    
+    }
+.uploadForm {
+    display: flex;
+    flex: 1;
+    margin: 100px;
+    align-items: center;
+    position: relative;
+
+   /* add this line to make the div a containing block for the absolutely positioned preprocess-checkbox div */
+  }
+
+  
+  .preprocess-dropdown {
+    position: fixed;
+    padding-top: 100px;
+    bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 1.75s ease-in-out, bottom 1.75s ease-in-out;
+
+  }
+  
+
+.submit_button {
+   display:flex;
+   justify-content:center;
+   margin:20px
+}
+
+  .preprocess-dropdown.appear {
+    bottom: 40%
+  }
+  .text_heading{
+    color: antiquewhite;
+    height:100px;
+  }
+
+
+
+  

@@ -1,0 +1,11 @@
+.cards{
+    margin: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.text{
+    text-align: justify;
+
+}

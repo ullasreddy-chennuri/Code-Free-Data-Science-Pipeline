@@ -1,0 +1,53 @@
+
+.mlmodels{
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    }
+    .backbutton{
+    margin-top: 15px;
+    margin-left:70px;
+    margin-bottom: 5px;
+    }
+    
+    .preprocess_body{
+    
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+      width: 60vw;
+      margin-left: 20vw;
+      margin-right: 20vw;
+    
+      background-color: white;
+      background-size: cover;
+    }
+    .uploadForm{
+        display: flex;
+        flex: 1;
+        margin: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+    .checklist{
+        justify-content: center;
+        align-items: center;
+    }
+
+  .preprocess-dropdown {
+    position: fixed;
+    padding-top: 100px;
+    bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 1.75s ease-in-out, bottom 1.75s ease-in-out;
+
+  }
+  
+
+  .preprocess-dropdown.appear {
+    bottom: 40%
+  }

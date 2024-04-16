@@ -1,0 +1,13 @@
+.app-container{
+    display: absolute;
+    background-color: white;
+    justify-content: center;
+}
+.accordions-group{
+    display: flex;
+    justify-content: center;
+}
+.accordions{
+    display: flex;
+    flex-direction: column;
+}

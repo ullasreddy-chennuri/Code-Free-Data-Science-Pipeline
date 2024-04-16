@@ -1,0 +1,38 @@
+.checkbox{
+    /* margin-top: 200px;*/
+    align-items: center;
+    justify-content: center;
+    color: antiquewhite;
+    background-color: black;
+    height: 101vh;
+    width: 100vw;
+    background: url(https://miro.medium.com/v2/resize:fit:679/1*9NWkAN6Es2PnS0_kb6tK2w.gif) no-repeat center center;
+  
+    background-size: cover;
+}
+
+.topbuttons{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+
+}
+.submitsection{
+   
+        display:flex;
+        justify-content:center;
+        margin:20px
+     
+}
+.title{
+    display: flex;
+    flex:1;
+    justify-content: center;
+   
+    margin:30px;
+}
+.checkbox_selection{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 100px;
+}
