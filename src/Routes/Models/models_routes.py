@@ -85,6 +85,7 @@ def model_implem():
         model = result['model']
         return jsonify({'message': 'Model implemented successfully.', 'evaluation_metrics': result['metrics']}), 200
     else:
+        print("Result is Empty")
         return jsonify({'error': 'Failed to implement the model.'}), 500
     
     

@@ -17,13 +17,12 @@ const preprocessNames = {
   "normalize_data": "Description of 1 preprocessing Description of 1 preprocessing Description of 1 preprocessing",
   "handle_invalid_data": "Description of 1 preprocessing Description of 1 preprocessing Description of 1 preprocessing",
   "handling_outliers": "Removing the values that are outside the threshold range.",
-  "remove_duplicate_rows": "Removing the duplicate rows.",
-
+  "remove_duplicate_rows": "Removing the duplicate rows."
   };
 
 const PreprocessCheckBox = ({ columnNames }) => {
 
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
+  const [preprocess_names, setSelectedCheckboxes] = useState([]);
   const [error, setError] = useState('');
   const [hoveredCard, setHoveredCard] = useState('');
   const [download, setDownload] = useState(false);
@@ -32,8 +31,8 @@ const PreprocessCheckBox = ({ columnNames }) => {
     setSelectedCheckboxes([]);
   }
   const handleCheckboxChange = (preprocessName) => {
-    const selectedIndex = selectedCheckboxes.indexOf(preprocessName);
-    const newSelected = [...selectedCheckboxes];
+    const selectedIndex = preprocess_names.indexOf(preprocessName);
+    const newSelected = [...preprocess_names];
 
 
     if (selectedIndex === -1) {
@@ -46,27 +45,27 @@ const PreprocessCheckBox = ({ columnNames }) => {
   };
 
   const handleCardClick = (preprocessName) => {
-    if (selectedCheckboxes.includes(preprocessName)) {
-      const newSelected = selectedCheckboxes.filter(item => item !== preprocessName);
+    if (preprocess_names.includes(preprocessName)) {
+      const newSelected = preprocess_names.filter(item => item !== preprocessName);
       setSelectedCheckboxes(newSelected);
     } else {
-      setSelectedCheckboxes([...selectedCheckboxes, preprocessName]);
+      setSelectedCheckboxes([...preprocess_names, preprocessName]);
     }
   };
 
   const handleSubmit = () => {
-    if (selectedCheckboxes.length === 0) {
+    if (preprocess_names.length === 0) {
       setError('Please select at least one preprocessing step.');
       return;
     }
-    console.log({selectedCheckboxes});
-    // Send selectedCheckboxes to localhost:5000
+    console.log({preprocess_names});
+    // Send preprocess_names to localhost:5000
     fetch('http://localhost:5000/preprocess', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify({ selectedCheckboxes }),
+  body: JSON.stringify({ preprocess_names }),
 })
   .then((response) => {
     if (!response.ok) {
@@ -188,7 +187,7 @@ const PreprocessCheckBox = ({ columnNames }) => {
             >
               <CardContent>
                 <Checkbox
-                  checked={selectedCheckboxes.includes(preprocessName)}
+                  checked={preprocess_names.includes(preprocessName)}
                   onChange={() => handleCheckboxChange(preprocessName)}
                   color="primary"
                   inputProps={{ 'aria-label': preprocessName }}

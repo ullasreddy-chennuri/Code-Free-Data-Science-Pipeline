@@ -1,13 +1,19 @@
 from sklearn.neighbors import KNeighborsRegressor
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 import pandas as pd
+from numpy import sqrt
+import numpy as np
 
 def knn_regression(df, target_column):
     try:
+        # Validate target variable type
+        if not np.issubdtype(df[target_column].dtype, np.number):
+            raise ValueError("Target variable must be numeric.")
+        
         X = df.drop(columns=[target_column])
         y = df[target_column]
         
@@ -28,16 +34,22 @@ def knn_regression(df, target_column):
         y_pred = pipeline.predict(X_test)
         
         mse = mean_squared_error(y_test, y_pred)
-        rmse = mse ** 0.5
-        r2 = r2_score(y_test, y_pred)
+        rmse = sqrt(mse)
+        mae = mean_absolute_error(y_test, y_pred)
+        r_squared = r2_score(y_test, y_pred)
         
+        # Return the trained model and metrics 
         return {
             'model': pipeline,
             'metrics': {
-                'MSE': mse,
-                'RMSE': rmse,
-                'R2': r2
+                'Mean Squared Error': mse,
+                'Root Mean Squared Error': rmse,
+                'Mean Absolute Error': mae,
+                'R Squared': r_squared
             }
         }
+    
     except Exception as e:
-        return f"An error occurred: {e}"
+        return {
+            f"An error occurred: {e}"
+        }

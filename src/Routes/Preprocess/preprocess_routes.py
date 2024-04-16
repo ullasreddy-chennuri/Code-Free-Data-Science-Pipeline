@@ -38,7 +38,9 @@ def upload_file():
 def preprocess_data_route():
     global numerical_columns, character_columns
     data = request.json
+    print("Request Data, :", data)
     preprocess_names = data.get('preprocess_names', [])
+    print("PreProcess from Front-end : ", preprocess_names)
     global preprocessed_data, df
     preprocessed_data = preprocess_data(preprocess_names, df, numerical_columns, character_columns)
     print(preprocessed_data.head(15))

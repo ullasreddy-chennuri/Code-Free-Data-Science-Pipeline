@@ -4,21 +4,31 @@
     background-color: black;
     background-size: 'cover';
    }
-.body{
+.body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url(https://miro.medium.com/v2/resize:fit:679/1*9NWkAN6Es2PnS0_kb6tK2w.gif) no-repeat center center;
+    background-size: cover;
+    opacity: 0.9; /* Adjust opacity as needed */
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
 
+.body {
     display: flex;
     flex-direction: column;
-align-items: center;
-justify-content: center;
-position: fixed;
-  top: 100;
-  left: 0;
-  width: 100vw;
-  background: url(https://miro.medium.com/v2/resize:fit:679/1*9NWkAN6Es2PnS0_kb6tK2w.gif) no-repeat center center;
-
-  background-size: cover;
-  height: 100vh;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
 }
+
 .descri{
     color: #303030;
     color: white;
