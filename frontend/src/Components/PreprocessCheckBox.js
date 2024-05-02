@@ -7,17 +7,17 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import { Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import '../Styles/PreprocessCheckBox.css';
-
+import Alert from '@mui/material/Alert';
 
 
 const preprocessNames = {
-  "handle_null_numerical": "Replace null values present with numerical column.",
-  "handle_null_character": "Replace null values present with character column.",
-  "clean_strings": "Description of 1 preprocessing Description of 1 preprocessing Description of 1 preprocessing",
-  "normalize_data": "Description of 1 preprocessing Description of 1 preprocessing Description of 1 preprocessing",
-  "handle_invalid_data": "Description of 1 preprocessing Description of 1 preprocessing Description of 1 preprocessing",
-  "handling_outliers": "Removing the values that are outside the threshold range.",
-  "remove_duplicate_rows": "Removing the duplicate rows."
+  "handle_null_numerical": "Method to manage or address null values within numerical data.",
+  "handle_null_character": "Method to address or manage null values within character or string data.",
+  "clean_strings": "Method to remove unnecessary characters and format string data for improved consistency.",
+  "normalize_data": "Method to scale numerical data to a common range, often between 0 and 1, for better model performance.",
+  "handle_invalid_data": "Method to handle the unexpected characters and format of the dataset.",
+  "handling_outliers": "Remove values of columns that are outside the threshold range.",
+  "remove_duplicate_rows": "Remove the duplicate rows present in the dataset."
   };
 
 const PreprocessCheckBox = ({ columnNames }) => {
@@ -55,7 +55,8 @@ const PreprocessCheckBox = ({ columnNames }) => {
 
   const handleSubmit = () => {
     if (preprocess_names.length === 0) {
-      setError('Please select at least one preprocessing step.');
+      alert("Please select at least one preprocessing step.");
+      // setError('Please select at least one preprocessing step.');
       return;
     }
     console.log({preprocess_names});
@@ -137,7 +138,7 @@ const PreprocessCheckBox = ({ columnNames }) => {
     <Button size="medium" variant="contained"
       tabIndex={-1}
       sx={{
-        backgroundColor: 'black',
+        backgroundColor: '#3F51B5',
         color: 'white',
         fontWeight: 'bold',
         fontSize: '18px',
@@ -154,7 +155,7 @@ const PreprocessCheckBox = ({ columnNames }) => {
     <Button size="medium" variant="contained"
       tabIndex={-1}
       sx={{
-        backgroundColor: 'black',
+        backgroundColor: '#3F51B5',
         color: 'white',
         fontWeight: 'bold',
         fontSize: '18px',
@@ -168,45 +169,48 @@ const PreprocessCheckBox = ({ columnNames }) => {
 
 </div>
 </div>
-<h1 className='title' >Select the Preprocessing steps:</h1>
+<h1 className='preprocess_head'  >Select the Preprocessing steps:</h1>
 
 <div className='checbox_selection'>
 
-      <Grid container spacing={2}>
-        {Object.entries(preprocessNames).map(([preprocessName, description], index) => (
-          <Grid item xs={6} key={index} >
-            <Card
-              sx={{ borderRadius: '10px',
-              backgroundColor: hoveredCard === preprocessName ? 'lightgray' : 'white',
-              transition: 'transform 0.3s ease',
-              transform: hoveredCard === preprocessName ? 'scale(1.01)' : 'scale(1)'
-          }}
-              onMouseEnter={() => setHoveredCard(preprocessName)}
-              onMouseLeave={() => setHoveredCard('')}
-              onClick={() => handleCardClick(preprocessName)}
-            >
-              <CardContent>
-                <Checkbox
-                  checked={preprocess_names.includes(preprocessName)}
-                  onChange={() => handleCheckboxChange(preprocessName)}
-                  color="primary"
-                  inputProps={{ 'aria-label': preprocessName }}
-                  sx={{
-                    fontSize: 'large',
-                    '& .MuiSvgIcon-root': {
-                      color: 'black',
-                    },
-                  }}
-                />
-                <div style={{ display: 'inline-block', marginLeft: '8px' }}>
-                  <div style={{ fontSize: '24px', fontWeight: 'bold' }}>{preprocessName}</div>
-                  <div style={{ fontSize: '18px' }}>{description}</div>
-                </div>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+<Grid container spacing={2}>
+  {Object.entries(preprocessNames).map(([preprocessName, description], index) => (
+    <Grid item xs={6} key={index}>
+      <Card
+        sx={{
+          borderRadius: '10px',
+          backgroundColor: hoveredCard === preprocessName ? 'lightgray' : 'white',
+          transition: 'transform 0.3s ease',
+          transform: hoveredCard === preprocessName ? 'scale(1.01)' : 'scale(1)',
+          marginLeft: '100px',
+        marginRight: '100px'
+        }}
+        onMouseEnter={() => setHoveredCard(preprocessName)}
+        onMouseLeave={() => setHoveredCard('')}
+        onClick={() => handleCardClick(preprocessName)}
+      >
+        <CardContent>
+          <Checkbox
+            checked={preprocess_names.includes(preprocessName)}
+            onChange={() => handleCheckboxChange(preprocessName)}
+            color="primary"
+            inputProps={{ 'aria-label': preprocessName }}
+            sx={{
+              fontSize: 'large',
+              '& .MuiSvgIcon-root': {
+                color: 'black',
+              },
+            }}
+          />
+          <div style={{ display: 'inline-block', marginLeft: '8px' }}>
+            <div style={{ fontSize: '24px', fontWeight: 'bold' }}>{preprocessName}</div>
+            <div style={{ fontSize: '18px' }}>{description}</div>
+          </div>
+        </CardContent>
+      </Card>
+    </Grid>
+  ))}
+</Grid>
 
 </div>
 
@@ -215,16 +219,19 @@ const PreprocessCheckBox = ({ columnNames }) => {
         <div className='submitButton'>
       <Button
         variant="contained"
-        endIcon={<SendIcon fontSize="large" />}
+        endIcon={<SendIcon fontSize="large"  sx={{color:"white"}}/>}
         sx={{
-          backgroundColor: 'green',
-          color: 'black',
+          backgroundColor: '#3F51B5',
+          color: 'whute',
           fontWeight: 'bold',
           fontSize: '18px',
           height: '50px',
           marginTop: '20px',
+          marginLeft: '20px',
           '&:hover': {
-            backgroundColor: 'darkgreen',
+            backgroundColor: '#3F51B5',
+            marginLeft: '20px'
+
           },
         }}
         onClick={handleSubmit}
@@ -232,27 +239,28 @@ const PreprocessCheckBox = ({ columnNames }) => {
         SUBMIT
       </Button>
 
-        </div>
 
-<div className='error'>
+      <div className='error'>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+{error && <Alert className='alertbox'severity="error" style={{ color: 'red' }} >{error}</Alert>}
 </div>
+
+
 <div className={`downloadButton ${download ? 'appear' : ''}`}>
 
 <Button
         variant="contained"
-        endIcon={<FileDownloadIcon className='upload' fontSize="large" sx={{ fontSize: '3rem' }} />}
+        endIcon={<FileDownloadIcon className='upload' fontSize="large" sx={{ fontSize: '3rem', color: 'white' }} />}
         sx={{
-          backgroundColor: 'green',
-          color: 'black',
+          backgroundColor: '#3F51B5',
+          color: 'white',
           fontWeight: 'bold', 
           fontSize: '18px', 
           height: '50px',
 
           '&:hover': {
-            backgroundColor: 'green',
-            color: 'black',
+            backgroundColor: '#3F51B5',
+            color: 'white',
           },
         }}
         onClick={handleDownload}
@@ -261,6 +269,8 @@ const PreprocessCheckBox = ({ columnNames }) => {
         DOWNLOAD
       </Button>
 </div>
+        </div>
+
       </div>
       
     </div>

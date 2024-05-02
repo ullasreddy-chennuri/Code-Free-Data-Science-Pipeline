@@ -5,9 +5,9 @@ align-items: center;
 justify-content: space-between;
 background-color: white;
 width: 100vw;
-background: url(https://miro.medium.com/v2/resize:fit:679/1*9NWkAN6Es2PnS0_kb6tK2w.gif) no-repeat center center;
+/* background: url(https://miro.medium.com/v2/resize:fit:679/1*9NWkAN6Es2PnS0_kb6tK2w.gif) no-repeat center center; */
+background-color: rgba(191, 214, 229, 0.792);
 
-background-size: cover;
 height: 101vh;
 }
 .topbuttons{
@@ -62,8 +62,9 @@ margin-bottom: 5px;
     bottom: 40%
   }
   .text_heading{
-    color: antiquewhite;
-    height:100px;
+    margin-top: 30px;
+    color: "#3F51B5";
+    height:70px;
   }
 
 

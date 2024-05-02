@@ -42,15 +42,15 @@ function Cards() {
 
       <Button component={Link} to="/preprocess" size="large"  variant="contained" 
         sx={{
-          backgroundColor: 'green',
-          color: 'black',
+          backgroundColor: '#3F51B5',
+          color: 'white',
           fontWeight: 'bold', 
           fontSize: '18px', 
           height: '50px',
 
           '&:hover': {
-            backgroundColor: 'green',
-            color: 'black',
+            backgroundColor: '#3F51B5',
+            color: 'white',
           },
         }}>
         Select
@@ -80,15 +80,15 @@ function Cards() {
         <Link to="/mlmodels">
       <Button size="large"  variant="contained" 
         sx={{
-          backgroundColor: 'green',
-          color: 'black',
+          backgroundColor: '#3F51B5',
+          color: 'white',
           fontWeight: 'bold', 
           fontSize: '18px', 
           height: '50px',
 
           '&:hover': {
-            backgroundColor: 'green',
-            color: 'black',
+            backgroundColor: '#3F51B5',
+            color: 'white',
           },
         }}>
         Select

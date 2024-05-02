@@ -26,7 +26,7 @@ function MLFileUpload({ f,setF,uploadStatus, setUploadStatus, columnNames, setco
       setbuttonDisabled(true);
      
     }
-  }, [uploadStatus]);
+  }, [uploadStatus, setbuttonDisabled]);
 
 
   const handleFileChange = (e) => {
@@ -105,11 +105,11 @@ function MLFileUpload({ f,setF,uploadStatus, setUploadStatus, columnNames, setco
         variant="contained"
         tabIndex={-1}
         startIcon={file ? <CloudDoneIcon className='upload' fontSize="large" sx={{
-          color: 'white',}}/> : <CloudUploadIcon className='upload' fontSize="large"sx={{
-            color: 'white',}}/>}
+          color: '#3F51B5',}}/> : <CloudUploadIcon className='upload' fontSize="large"sx={{
+            color: '#3F51B5',}}/>}
         sx={{
-          backgroundColor: 'black',
-          color: 'white',
+          backgroundColor: 'white',
+          color: '#3F51B5',
           fontWeight: 'bold', 
           fontSize: '18px',
           height: '50px',
@@ -128,17 +128,17 @@ function MLFileUpload({ f,setF,uploadStatus, setUploadStatus, columnNames, setco
 
       <Button
         variant="contained"
-        endIcon={<SendIcon className='upload' fontSize="large" sx={{ fontSize: '3rem' }} />}
+        endIcon={<SendIcon className='upload' fontSize="large" sx={{ fontSize: '3rem', color: 'white' }} />}
         sx={{
-          backgroundColor: 'green',
-          color: 'black',
+          backgroundColor: '#3F51B5',
+          color: 'white',
           fontWeight: 'bold', 
           fontSize: '18px', 
           height: '50px',
 
           '&:hover': {
-            backgroundColor: 'green',
-            color: 'black',
+            backgroundColor: '#3F51B5',
+            color: 'white',
           },
         }}
         onClick={handleUpload}
@@ -147,7 +147,7 @@ function MLFileUpload({ f,setF,uploadStatus, setUploadStatus, columnNames, setco
         Send
       </Button>
       {showAlert && ( 
-        <Alert sx={{ marginTop: '16px' }} duration={3000}>
+        <Alert sx={{ marginTop: '16px' }} duration={3000} severity="info">
           {uploadStatus}
         </Alert>
       )}

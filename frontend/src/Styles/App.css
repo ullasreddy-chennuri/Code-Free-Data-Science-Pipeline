@@ -1,7 +1,7 @@
 .App{
     
     margin-top: -30px;
-    background-color: black;
+    background-color: rgba(101, 177, 228, 0.792);
     background-size: 'cover';
    }
 .body::before {
@@ -11,7 +11,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url(https://miro.medium.com/v2/resize:fit:679/1*9NWkAN6Es2PnS0_kb6tK2w.gif) no-repeat center center;
+    background-color: #b8d6eaca;
+    /* background: url(https://miro.medium.com/v2/resize:fit:679/1*9NWkAN6Es2PnS0_kb6tK2w.gif) no-repeat center center; */
     background-size: cover;
     opacity: 0.9; /* Adjust opacity as needed */
     z-index: -1; /* Ensure the pseudo-element is behind the content */
@@ -30,8 +31,7 @@
 }
 
 .descri{
-    color: #303030;
-    color: white;
+    color: #3F51B5;
     text-align: center;
     font-weight: bold;
     font-size: xx-large;

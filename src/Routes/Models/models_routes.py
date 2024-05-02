@@ -54,6 +54,7 @@ def select_target_column():
         return jsonify({'error': 'No data available. Upload data first.'}), 400
 
     if target_column not in df.columns:
+
         return jsonify({'error': f'Target column "{target_column}" not found in the data.'}), 400
 
     # Save the target column for later use

@@ -119,7 +119,7 @@ function MLmodelsPage() {
     <Button size="medium" variant="contained"
         tabIndex={-1}
         sx={{
-          backgroundColor: 'black',
+          backgroundColor: '#3F51B5',
           color: 'white',
           fontWeight: 'bold', 
           fontSize: '18px',
@@ -137,11 +137,10 @@ function MLmodelsPage() {
 
 
    <div className='resetbutton'>
-        
         <Button size="medium" variant="contained"
           tabIndex={-1}
           sx={{
-            backgroundColor: 'black',
+            backgroundColor: '#3F51B5',
             color: 'white',
             fontWeight: 'bold',
             fontSize: '18px',
@@ -151,7 +150,7 @@ function MLmodelsPage() {
               color: 'black',
             },
           }} onClick={handleReset}
-          disabled={!showPreprocess}><ReplayIcon />RESET</Button>
+          disabled={!showPreprocess}><ReplayIcon />RESET</Button> 
     
     </div>
 </div>  
@@ -178,20 +177,23 @@ function MLmodelsPage() {
         options={options}
         styles={customStyles}
       />    
-      <Link to="/mlmodels_training">
       
+      <div className='submitButton'>
+      
+      <Link to="/mlmodels_training">
+
       <Button
         variant="contained"
-        endIcon={<SendIcon fontSize="large" />}
+        endIcon={<SendIcon fontSize="large" sx={{color: "white"}}/>}
         sx={{
-          backgroundColor: 'green',
-          color: 'black',
+          backgroundColor: '#3F51B5',
+          color: 'white',
           fontWeight: 'bold',
           fontSize: '18px',
           height: '50px',
           marginTop: '20px',
           '&:hover': {
-            backgroundColor: 'darkgreen',
+            backgroundColor: '#3F51B5',
           },
         }}
         onClick={handlePreprocessClick}
@@ -199,6 +201,8 @@ function MLmodelsPage() {
         SUBMIT
       </Button>
       </Link>
+      </div>
+     
         </div>
         )
       }
