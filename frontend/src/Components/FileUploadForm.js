@@ -26,7 +26,7 @@ function FileUploadForm({ f,setF,uploadStatus, setUploadStatus, columnNames, set
       setbuttonDisabled(true);
      
     }
-  }, [uploadStatus]);
+  }, [uploadStatus, setbuttonDisabled]);
 
 
   const handleFileChange = (e) => {
@@ -105,11 +105,11 @@ function FileUploadForm({ f,setF,uploadStatus, setUploadStatus, columnNames, set
         variant="contained"
         tabIndex={-1}
         startIcon={file ? <CloudDoneIcon className='upload' fontSize="large" sx={{
-          color: 'white',}}/> : <CloudUploadIcon className='upload' fontSize="large"sx={{
-            color: 'white',}}/>}
+          color: '#3F51B5',}}/> : <CloudUploadIcon className='upload' fontSize="large"sx={{
+            color: '#3F51B5',}}/>}
         sx={{
-          backgroundColor: 'black',
-          color: 'white',
+          backgroundColor: 'white',
+          color: '#3F51B5',
           fontWeight: 'bold', 
           fontSize: '18px',
           height: '50px',
@@ -128,16 +128,16 @@ function FileUploadForm({ f,setF,uploadStatus, setUploadStatus, columnNames, set
 
       <Button
         variant="contained"
-        endIcon={<SendIcon className='upload' fontSize="large" sx={{ fontSize: '3rem' }} />}
+        endIcon={<SendIcon className='upload' fontSize="large" sx={{ fontSize: '3rem', color: 'white' }} />}
         sx={{
-          backgroundColor: 'green',
-          color: 'black',
+          backgroundColor: '#3F51B5',
+          color: 'white',
           fontWeight: 'bold', 
           fontSize: '18px', 
           height: '50px',
 
           '&:hover': {
-            backgroundColor: 'green',
+            backgroundColor: '#3F51B5',
             color: 'black',
           },
         }}
@@ -147,14 +147,14 @@ function FileUploadForm({ f,setF,uploadStatus, setUploadStatus, columnNames, set
         Send
       </Button>
       {showAlert && ( 
-        <Alert  sx={{ marginTop: '16px' }} duration={3000}>
+        <Alert  sx={{ marginTop: '16px' }} duration={3000} severity="info">
           {uploadStatus}
         </Alert>
       )}
      
 
      {file && (
-    <p style={{ color: 'white', fontSize: '25px', marginTop: '0px' }}>{file.name}</p>
+    <p style={{ color: 'black', fontSize: '25px', marginTop: '0px' }}>{file.name}</p>
    
 )}</form>
     </div> 

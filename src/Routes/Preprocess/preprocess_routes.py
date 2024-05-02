@@ -5,6 +5,7 @@ sys.path.append('../../../src')
 from src.preprocess import *
 import pandas as pd
 import io
+import openpyxl
 
 from src.utils import *
 

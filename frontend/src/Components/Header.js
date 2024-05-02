@@ -10,13 +10,15 @@ function Header() {
      <Link to="/">
      <Button size="medium" variant="contained"
             sx={{
-              backgroundColor: 'black',
+              backgroundColor: '#3F51B5',
               color: 'white',
               fontWeight: 'bold',
               fontSize: '24px',
+              boxShadow: 'none',
               '&:hover': {
-                backgroundColor: 'black',
+                backgroundColor: '#3F51B5',
                 color: 'white',
+                boxShadow: 'none'
               },
             }}>
               Custom ML

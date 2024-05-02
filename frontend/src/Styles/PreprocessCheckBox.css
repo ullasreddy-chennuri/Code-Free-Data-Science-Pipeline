@@ -2,12 +2,9 @@
     /* margin-top: 200px;*/
     align-items: center;
     justify-content: center;
-    color: antiquewhite;
-    background-color: black;
-    height: 101vh;
+    height: 105vh;
     width: 100vw;
-    background: url(https://miro.medium.com/v2/resize:fit:679/1*9NWkAN6Es2PnS0_kb6tK2w.gif) no-repeat center center;
-  
+    background-color: #b8d6eaca;
     background-size: cover;
 }
 
@@ -20,15 +17,23 @@
 .submitsection{
    
         display:flex;
+        
         justify-content:center;
+        align-items: center;
         margin:20px
      
 }
-.title{
+.downloadButton{
+    margin-top: 18px;
+}
+.alertbox{
+margin-top: 10px;
+}
+.preprocess_head{
+    color: #3F51B5;
     display: flex;
     flex:1;
     justify-content: center;
-   
     margin:30px;
 }
 .checkbox_selection{

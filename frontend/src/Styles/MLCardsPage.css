@@ -1,6 +1,8 @@
 .app-container{
     display: absolute;
-    background-color: white;
+    background-color: #b8d6eaca;
+    width: 100vw;
+    height: 200vh;
     justify-content: center;
 }
 .accordions-group{
@@ -9,5 +11,16 @@
 }
 .accordions{
     display: flex;
+    color: #3F51B5;
     flex-direction: column;
+}
+
+.selectedModel{
+    margin-top: 10px;
+}
+.load{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -23,15 +23,27 @@ function PreprocessPage() {
 
   const options = columnNames.map(columnName => ({ value: columnName, label: columnName }));
 
-  const [isFocused, setIsFocused] = useState(false);
+  const [menuIsOpenNumColumns, setMenuIsOpenNumColumns] = useState(false);
+  const [menuIsOpenRemColumns, setMenuIsOpenRemColumns] = useState(false);
 
-  const handleFocus = () => {
-    setIsFocused(true);
+  const handleFocusNumColumns = () => {
+    setMenuIsOpenNumColumns(true);
   };
 
-  const handleBlur = () => {
-    setIsFocused(false);
+  const handleBlurNumColumns = () => {
+    // Add logic to check if the blur event occurred outside the dropdown area
+    setMenuIsOpenNumColumns(false);
   };
+
+  const handleFocusRemColumns = () => {
+    setMenuIsOpenRemColumns(true);
+  };
+
+  const handleBlurRemColumns = () => {
+    // Add logic to check if the blur event occurred outside the dropdown area
+    setMenuIsOpenRemColumns(false);
+  };
+
 
 
   const handleNumColumnChange = (numColumns) => {
@@ -131,7 +143,7 @@ function PreprocessPage() {
           <Button size="medium" variant="contained"
             tabIndex={-1}
             sx={{
-              backgroundColor: 'black',
+              backgroundColor: '#3F51B5',
               color: 'white',
               fontWeight: 'bold',
               fontSize: '18px',
@@ -145,10 +157,10 @@ function PreprocessPage() {
       </div>
       <div className='resetbutton'>
         
-          <Button size="medium" variant="contained"
+         <Button size="medium" variant="contained"
             tabIndex={-1}
             sx={{
-              backgroundColor: 'black',
+              backgroundColor: '#3F51B5',
               color: 'white',
               fontWeight: 'bold',
               fontSize: '18px',
@@ -170,35 +182,41 @@ function PreprocessPage() {
       <div>
       <div className={`preprocess-dropdown ${showPreprocess ? 'appear' : ''}`}>
       {f  && <h1>{f}</h1>}
-<h1 className='text_heading'> Select the numerical columns in the dataset:</h1>
+
+      <div className='dropdown-body'>
+
+      <h1 className='text_heading'> Select the numerical columns in the dataset:</h1>
 
 
 
-    <Select className='dropdowm'
-        isMulti
-        value={numColumns}
-        onChange={handleNumColumnChange}
-        options={options}
-        styles={customStyles}
-        onFocus={handleFocus}
-      onBlur={handleBlur}
-      menuIsOpen={isFocused}
-      />    
-     
-<h1 className='text_heading'> Select the columns to delete from the dataset:</h1>
+<Select
+  className='dropdown'
+  isMulti
+  value={numColumns}
+  onChange={handleNumColumnChange}
+  options={options}
+  styles={customStyles}
+  onFocus={handleFocusNumColumns}
+  onBlur={handleBlurNumColumns}
+  menuIsOpen={menuIsOpenNumColumns}
+/>   
+
+<h1 className='text_heading' > Select the columns to delete from the dataset:</h1>
 <h1> </h1>
-      
 
-<Select   className='dropdowm'
-        isMulti
-        value={remColumns}
-        onChange={handleRemColumnChange}
-        options={options}
-        styles={customStyles}
-        onFocus={handleFocus}
-      onBlur={handleBlur}
-      menuIsOpen={isFocused}
-      />        
+<Select
+  className='dropdown'
+  isMulti
+  value={remColumns}
+  onChange={handleRemColumnChange}
+  options={options}
+  styles={customStyles}
+  onFocus={handleFocusRemColumns}
+  onBlur={handleBlurRemColumns}
+  menuIsOpen={menuIsOpenRemColumns}
+/>  
+      </div>
+   
 
 
             
@@ -207,15 +225,15 @@ function PreprocessPage() {
       <Link to="/preprocess_steps">
       <Button component={Link} to="/preprocess_steps" size="large"  variant="contained" onClick={handlePreprocessClick}
         sx={{
-          backgroundColor: 'green',
-          color: 'black',
+          backgroundColor: "#3F51B5",
+          color: 'white',
           fontWeight: 'bold', 
           fontSize: '18px', 
           height: '50px',
 
           '&:hover': {
-            backgroundColor: 'green',
-            color: 'black',
+            backgroundColor: '#3F51B5',
+            color: 'white',
           },
         }}>
           
