@@ -8,12 +8,20 @@ import pandas as pd
 
 def knn_regression(df, target_column):
     try:
+
+        # Validate target variable type
+        if not np.issubdtype(df[target_column].dtype, np.number):
+            raise ValueError("Target variable must be numeric.")
+
+        # Drop rows with missing or invalid values
+        df.dropna(inplace=True)
+
         X = df.drop(columns=[target_column])
         y = df[target_column]
         
         non_numeric_columns_X = X.select_dtypes(exclude=['number']).columns.tolist()
         column_transformer = ColumnTransformer(
-            [('one_hot_encoder', OneHotEncoder(), non_numeric_columns_X)],
+            [('one_hot_encoder', OneHotEncoder(sparse=False), non_numeric_columns_X)],
             remainder='passthrough'
         )
         
@@ -26,6 +34,8 @@ def knn_regression(df, target_column):
         
         pipeline.fit(X_train, y_train)
         y_pred = pipeline.predict(X_test)
+
+        print("After Model Implemetation")
         
         mse = mean_squared_error(y_test, y_pred)
         rmse = mse ** 0.5

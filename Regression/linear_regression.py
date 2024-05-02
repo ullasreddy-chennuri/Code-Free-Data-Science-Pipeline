@@ -14,6 +14,9 @@ def linear_regression(df, target_column):
         if not np.issubdtype(df[target_column].dtype, np.number):
             raise ValueError("Target variable must be numeric.")
 
+        # Drop rows with missing or invalid values
+        df.dropna(inplace=True)
+
         # Split the data into features (X) and target variable (y)
         X = df.drop(columns=[target_column])
         y = df[target_column]
@@ -23,7 +26,7 @@ def linear_regression(df, target_column):
 
         # Create a column transformer for transforming non-numeric columns
         column_transformer = ColumnTransformer(
-            [('one_hot_encoder', OneHotEncoder(), non_numeric_columns_X)],
+            [('one_hot_encoder', OneHotEncoder(sparse=False), non_numeric_columns_X)],  # Set sparse=False
             remainder='passthrough'
         )
 
@@ -47,6 +50,7 @@ def linear_regression(df, target_column):
         rmse = sqrt(mse)
         mae = mean_absolute_error(y_test, y_pred)
         r_squared = r2_score(y_test, y_pred)
+        print("MSE : ", mse)
         
         # Return the trained model and metrics 
         return {
@@ -60,6 +64,7 @@ def linear_regression(df, target_column):
         }
     except ValueError as ve:
         print(f"Validation error: {ve}")
+        return None
     except Exception as e:
         print(f"An error occurred: {e}")
-
+        return None
